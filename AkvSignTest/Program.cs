@@ -15,11 +15,9 @@ var client = new KeyClient(new Uri(keyVaultUrl), cred);
 
 string keyName = "key-sign-mikehow-tst";
 KeyVaultKey key = client.GetKey(keyName);
-
 var cryptoClient = new CryptographyClient(key.Id, cred);
 
 string dataToSign = "Hello, AKV Digital Signature World!";
-
 var dataBytes = Encoding.UTF8.GetBytes(dataToSign);
 var hashedData = SHA256.HashData(dataBytes);
 SignResult signResult = cryptoClient.Sign(SignatureAlgorithm.RS256, hashedData);
