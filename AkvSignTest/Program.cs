@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 string? keyVaultUrl = Environment.GetEnvironmentVariable("AKV_SIGNING_URI");
 if (keyVaultUrl == null) {
-    Console.WriteLine("Please set the AkvSigningUri environment variable.");
+    Console.WriteLine("Set the AKV_SIGNING_URI environment variable.");
     return;
 }
 
